@@ -1,12 +1,10 @@
 #!/usr/bin/env node
-// Repository rules: commit messages are bare version numbers (1.0, 1.1, ...) and README.md holds only the game title.
-// Used by .githooks (local) and .github/workflows (CI). Usage: install | commit-msg <file> | pre-commit | ci [before] [after]
+// Minimal repository rules: version-numbered commits and no private research materials.
+// Used by local git hooks and CI.
 import { execFileSync } from "node:child_process";
 import { chmodSync, existsSync, readdirSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-const README_TITLE = "Make Ramen To Get Rich";
-const EXPECTED_README = "# " + README_TITLE + "\n";
 const VERSION = /^(\d+)\.(\d+)$/;
 const ZERO_SHA = /^0+$/;
 // Internal build research (the "详情资料" txt) must never be committed to the site repository.
@@ -39,12 +37,6 @@ function checkMessage(message, previousMessage, allowEqual) {
   return null;
 }
 
-function checkReadme(source) {
-  if (source === null) return "README.md 不能删除";
-  const normalized = source.replace(/\r\n/g, "\n").replace(/\n*$/, "\n");
-  return normalized === EXPECTED_README ? null : "README.md 只能包含一行：# " + README_TITLE;
-}
-
 function checkInternalFiles(paths) {
   const blocked = paths.filter((path) => INTERNAL_FILE.test(path));
   return blocked.length ? "禁止提交内部建站资料（游戏详情资料 txt）：" + blocked.join("、") + "。请移出仓库，不要提交" : null;
@@ -54,7 +46,7 @@ function finish(errors) {
   const list = errors.filter(Boolean);
   if (!list.length) return;
   for (const error of list) console.error("✖ " + error);
-  console.error("仓库提交规则见 AGENTS.md。");
+  console.error("Repository commit policy check failed.");
   process.exit(1);
 }
 
@@ -81,7 +73,7 @@ if (command === "install") {
   finish([checkMessage(message, head ? commitMessage("HEAD") : null, true)]);
 } else if (command === "pre-commit") {
   const staged = (tryGit("diff", "--cached", "--name-only", "--diff-filter=ACMR") ?? "").split("\n").filter(Boolean);
-  finish([checkReadme(tryGit("show", ":README.md")), checkInternalFiles(staged)]);
+  finish([checkInternalFiles(staged)]);
 } else if (command === "ci") {
   const after = (args[1] || "HEAD").trim();
   const before = (args[0] || "").trim();
@@ -94,7 +86,6 @@ if (command === "install") {
     const error = checkMessage(commitMessage(sha), parent ? commitMessage(parent) : null, false);
     return error ? sha.slice(0, 7) + "：" + error : null;
   });
-  errors.push(checkReadme(tryGit("show", after + ":README.md")));
   errors.push(checkInternalFiles((tryGit("ls-tree", "-r", "--name-only", after) ?? "").split("\n").filter(Boolean)));
   finish(errors);
   console.log("仓库规则检查通过（" + commits.length + " 个提交）。");

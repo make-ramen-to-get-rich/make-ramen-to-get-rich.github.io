@@ -1,4 +1,5 @@
 import { CalendarCheck2 } from "lucide-react";
+import { siteConfig } from "@/config/site";
 import Link from "next/link";
 import { NativeAdSlot } from "@/components/integrations/native-ad-slot";
 import type { SeoPageDefinition } from "@/config/types";
@@ -27,6 +28,7 @@ export function SkinSeoPage({ page }: { page: SeoPageDefinition }) {
             {page.hero.eyebrow ? <p className="eyebrow">{page.hero.eyebrow}</p> : null}
             <h1>{page.hero.heading}</h1>
             <p className="section-lead">{page.hero.lead}</p>
+            {siteConfig.game.officialUrl ? <a href={siteConfig.game.officialUrl} target="_blank" rel="noopener noreferrer" className="button-secondary mt-6 inline-flex">Open the official Roblox game ↗</a> : null}
             <p className="skin-reviewed">
               <CalendarCheck2 size={16} />
               Last reviewed: <time dateTime={page.lastReviewed}>{page.lastReviewed}</time>

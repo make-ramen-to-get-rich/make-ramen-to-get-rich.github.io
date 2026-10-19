@@ -15,8 +15,16 @@ jobs:
         with:
           fetch-depth: 0
           ref: ${{ github.event.pull_request.head.sha || github.sha }}
-      - name: Check commit messages and README
+      - name: Check commit policy and private research materials
         run: node scripts/repo-rules.mjs ci "$BEFORE" "$AFTER"
         env:
           BEFORE: ${{ github.event.pull_request.base.sha || github.event.before }}
           AFTER: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run typecheck
+      - run: npm run lint
+      - run: npm run build
