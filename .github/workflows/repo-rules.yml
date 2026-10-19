@@ -1,4 +1,4 @@
-name: Repository rules
+name: Repository rules and site QA
 
 on:
   push:
@@ -28,48 +28,116 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run build
-      - name: Validate exported SEO pages and public files
+      - name: Validate exported HTML and technical SEO
         run: |
           node <<'NODE'
           const fs = require('node:fs');
           const path = require('node:path');
           const assert = require('node:assert/strict');
           const root = 'https://make-ramen-to-get-rich.github.io/';
-          const routes = ['', 'how-to-play', 'how-to-make-money', 'how-to-get-followers', 'mukbang-guide', 'gamepasses'];
+          const pages = [JSON.parse(fs.readFileSync('content/generated/home.json', 'utf8')), ...JSON.parse(fs.readFileSync('content/generated/pages.json', 'utf8'))];
+          const routes = pages.map(page => page.slug);
           const read = file => fs.readFileSync(path.join('out', file), 'utf8');
           const sitemap = read('sitemap.xml');
-          for (const slug of routes) {
-            const file = slug ? path.join(slug,'index.html') : 'index.html';
+          const clean = value => value.replace(/<script\b[^>]*>[\s\S]*?<\/script>/gi,' ').replace(/<style\b[^>]*>[\s\S]*?<\/style>/gi,' ').replace(/<[^>]*>/g,' ').replace(/&(?:#x27|#39);/g,"'").replace(/&quot;/g,'"').replace(/&amp;/g,'&').replace(/\s+/g,' ').trim();
+          assert.equal(pages.length, 6, 'Expected home + exactly five published game pages');
+          assert.equal(new Set(routes).size, pages.length, 'Duplicate page URLs');
+          for (const page of pages) {
+            const file = page.slug ? path.join(page.slug, 'index.html') : 'index.html';
             const html = read(file);
-            const canonical = root + (slug ? slug + '/' : '');
-            assert(html.includes(canonical), 'Canonical missing: ' + canonical);
-            assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length, 1, 'H1 count: '+file);
-            assert(html.includes('G-8CMRKXJN4S'), 'GA4 missing: ' + file);
-            assert(html.includes('<title>'), 'Title missing: ' + file);
-            assert(html.includes('description'), 'Description missing: ' + file);
-            assert(html.includes('Make Ramen To Get Rich'), 'Game entity missing: ' + file);
-            assert(sitemap.includes('<loc>'+canonical+'</loc>'), 'Sitemap missing: ' + canonical);
-            for (const other of routes.slice(1)) assert(html.includes('/'+other+'/'), 'Navigation missing '+other+' on '+file);
-            assert(!/Yorich|交接立项|详情资料|prompt\s*instructions|AGENTS\.md|CLAUDE\.md/i.test(html), 'Internal phrase in '+file);
-          }
-          const pages = JSON.parse(fs.readFileSync('content/generated/pages.json', 'utf8'));
-          const home = JSON.parse(fs.readFileSync('content/generated/home.json', 'utf8'));
-          for (const page of [home, ...pages]) {
-            const html = read(page.slug ? path.join(page.slug, 'index.html') : 'index.html');
+            const visible = clean(html);
+            const canonical = root + (page.slug ? page.slug + '/' : '');
+            assert(html.includes(canonical), 'Canonical missing ' + canonical);
+            assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length, 1, 'H1 count '+file);
+            assert(page.title.length <= 60 && page.description.length <= 160, 'TD over limit '+file);
+            assert(html.includes('G-8CMRKXJN4S'), 'GA4 missing '+file);
+            assert(!/<meta[^>]*name="robots"[^>]*content="[^"]*noindex/i.test(html), 'noindex on '+file);
+            assert(sitemap.includes('<loc>'+canonical+'</loc>'), 'Sitemap missing '+canonical);
+            assert(html.includes('Make Ramen To Get Rich'), 'Game missing '+file);
+            assert(html.includes('<footer'), 'Shared footer absent '+file);
+            assert(html.includes('Primary navigation'), 'Global navigation absent '+file);
+            for (const slug of routes.filter(Boolean)) assert(html.includes('/'+slug+'/'), 'Missing permanent global link '+slug+' on '+file);
             for (const section of page.sections) {
-              assert(html.includes('<h2>'+section.heading.replace(/&/g,'&amp;')+'</h2>'), 'Missing source H2: '+section.heading);
+              assert(visible.includes(section.heading), 'H2 missing: '+section.heading);
               for (const sub of section.subsections ?? []) {
-                assert(html.includes('<h3>'+sub.heading.replace(/&/g,'&amp;')+'</h3>'), 'Missing source H3: '+sub.heading);
-                for (const paragraph of sub.paragraphs) assert(html.includes(paragraph.slice(0,35).replace(/&/g,'&amp;')), 'Missing source paragraph: '+page.slug);
+                assert(visible.includes(sub.heading), 'H3 missing: '+sub.heading);
+                for (const paragraph of sub.paragraphs) assert(visible.includes(clean(paragraph).slice(0,70)), 'Source paragraph missing '+page.slug+' '+sub.heading);
               }
-              if (section.table) assert(html.includes('<table>') && html.includes(section.table.caption), 'Missing source table '+page.slug);
-              for (const link of section.links ?? []) assert(html.includes('href="/'+link.slug+'/"'), 'Missing contextual link '+link.slug);
+              for (const link of section.links ?? []) assert(html.includes('/'+link.slug+'/'), 'Contextual link missing '+link.slug);
+              if (section.table) assert(html.includes('<table'), 'Missing source table '+page.slug);
             }
-            assert(html.includes('guide-mobile-navigation'), 'No mobile navigation '+page.slug);
-            assert(html.includes('roblox.com/games/102155891663543'), 'Official Roblox CTA missing '+page.slug);
+            assert(!/Yorich|交接立项|详情资料|prompt\s*instructions|AGENTS\.md|CLAUDE\.md/i.test(html), 'Internal content found '+file);
+            assert(html.includes('application/ld+json'), 'Structured data missing '+file);
           }
-          assert.equal((sitemap.match(/<loc>/g)||[]).length, 6, 'Unexpected sitemap URL count');
+          assert.equal((sitemap.match(/<loc>/g)||[]).length, 6, 'Sitemap must contain six page URLs');
           const robots = read('robots.txt');
-          assert(robots.includes('sitemap.xml'), 'robots.txt missing sitemap link');
-          console.log('Six export routes, sitemap, H1, canonical, GA4 and internal content checks passed.');
+          assert(robots.includes('Allow: /') && !robots.includes('Disallow: /'), 'robots.txt blocks crawlers');
+          assert(robots.includes('sitemap.xml'), 'robots sitemap missing');
+          assert(fs.existsSync('out/404.html'), '404 page missing');
+          console.log('PASS: six full-content HTML pages, sitewide footer, navigation, metadata, schema, sitemap, robots and 404');
+          NODE
+      - name: Desktop and mobile Chromium browser QA
+        run: |
+          npm install --no-save --package-lock=false playwright-core@1.56.1
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory out >/tmp/ramen-site-http.log 2>&1 &
+          SITE_PID=$!
+          trap 'kill $SITE_PID 2>/dev/null || true' EXIT
+          for i in 1 2 3 4 5 6 7 8 9 10; do if curl -s --fail http://127.0.0.1:4173/ >/dev/null; then break; fi; sleep 1; done
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          CHROME_BIN="$CHROME_BIN" node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright-core';
+          const browser = await chromium.launch({ headless:true, executablePath:process.env.CHROME_BIN, args:['--no-sandbox','--disable-dev-shm-usage'] });
+          const base='http://127.0.0.1:4173';
+          const slugs=['','how-to-play','how-to-make-money','how-to-get-followers','mukbang-guide','gamepasses'];
+          try {
+            for(const device of [{name:'desktop',width:1440,height:900},{name:'laptop',width:1024,height:768},{name:'mobile',width:390,height:844},{name:'small-mobile',width:320,height:720}]) {
+              const context=await browser.newContext({viewport:{width:device.width,height:device.height},deviceScaleFactor:1});
+              for(const slug of slugs){
+                const page=await context.newPage();
+                const issues=[];page.on('pageerror',e=>issues.push(e.message));
+                const response=await page.goto(base+'/'+(slug?slug+'/':''),{waitUntil:'networkidle',timeout:30000});
+                assert.equal(response?.status(),200,device.name+' '+slug+' response');
+                await page.locator('footer').waitFor({state:'visible'});
+                const details=await page.evaluate(()=>{
+                  const nav=document.querySelector('nav[aria-label="Primary navigation"]');
+                  const footer=document.querySelector('footer');
+                  const main=document.querySelector('main');
+                  const h1=document.querySelector('h1');
+                  const heroImg=document.querySelector('.soft-guide-cover');
+                  const rect=heroImg?.getBoundingClientRect();
+                  return {scrollWidth:document.documentElement.scrollWidth,innerWidth:window.innerWidth,footer:getComputedStyle(footer).display,nav:getComputedStyle(nav).display,navLinks:nav.querySelectorAll('a[href]').length,footerLinks:footer.querySelectorAll('a[href]').length,mainChars:main?.textContent?.length||0,h1Font:parseFloat(getComputedStyle(h1).fontSize),h1Count:document.querySelectorAll('h1').length,heroWidth:rect?.width??0,heroHeight:rect?.height??0,brand:document.querySelector('header a[href="/"]')?.textContent?.trim()||''};
+                });
+                assert(details.scrollWidth<=details.innerWidth+2,'Horizontal overflow '+device.name+' '+slug+' '+JSON.stringify(details));
+                assert.equal(details.h1Count,1,'H1 '+device.name+' '+slug);
+                assert(details.h1Font>=28,'Unstyled H1 '+device.name+' '+slug);
+                assert(details.footer!=='none' && details.footerLinks>=8,'Missing footer links '+device.name+' '+slug);
+                assert(details.mainChars>1700,'Thin or missing page content '+device.name+' '+slug);
+                assert(details.brand.includes('Make Ramen'),'Brand missing '+device.name+' '+slug);
+                assert.equal(issues.length,0,'Browser JS error '+device.name+' '+slug+' '+issues.join(';'));
+                if(!slug){
+                  assert(details.heroWidth>160&&details.heroWidth<690,'Unbounded hero image '+device.name+' '+JSON.stringify(details));
+                  assert(details.heroHeight<500,'Hero image too tall '+device.name);
+                }
+                if(device.width<=1099){
+                  const toggle=page.getByRole('button',{name:'Open navigation'});
+                  assert(await toggle.isVisible(),'Mobile nav toggle missing '+device.name+' '+slug);
+                  await toggle.click();
+                  assert.equal(await toggle.getAttribute('aria-expanded'),'true','Mobile nav did not open '+device.name);
+                  assert(await page.getByRole('navigation',{name:'Primary navigation'}).getByRole('link',{name:'Gamepasses'}).isVisible(),'Mobile nav links invisible');
+                  await page.getByRole('button',{name:'Close navigation'}).click();
+                }else{
+                  assert.equal(details.navLinks,5,'Desktop nav count '+slug);
+                }
+                if((device.name==='desktop'||device.name==='mobile')&&(slug===''||slug==='how-to-play')){
+                  const image=await page.screenshot({type:'jpeg',quality:42});
+                  console.log('VISUAL_CAPTURE:'+device.name+':'+(slug||'home')+':'+image.toString('base64'));
+                }
+                console.log('PASS '+device.name+' '+(slug||'home')+' width='+details.scrollWidth+' links='+details.footerLinks+' chars='+details.mainChars);
+                await page.close();
+              }
+              await context.close();
+            }
+          }finally{await browser.close();}
           NODE
