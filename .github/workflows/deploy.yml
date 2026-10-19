@@ -56,3 +56,38 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+      - name: Verify live published URLs and crawlability
+        run: |
+          python3 - <<'PY'
+          import re, time, urllib.request
+          base = "https://make-ramen-to-get-rich.github.io/"
+          paths = ["", "how-to-play/", "how-to-make-money/", "how-to-get-followers/", "mukbang-guide/", "gamepasses/"]
+          def request(path, required):
+              url = base + path
+              last_error = None
+              for attempt in range(12):
+                  try:
+                      req = urllib.request.Request(url, headers={"User-Agent":"RamenSiteLaunchQA/1.0"})
+                      with urllib.request.urlopen(req, timeout=20) as response:
+                          html = response.read().decode("utf-8")
+                          assert response.status == 200, f"{response.status} for {url}"
+                          for marker in required:
+                              assert marker in html, f"Missing {marker!r} on {url}"
+                          return html
+                  except Exception as e:
+                      last_error = e
+                      print(f"Retry {attempt+1}/12 for {url}: {e}", flush=True)
+                      time.sleep(5)
+              raise RuntimeError(f"Live check failed for {url}: {last_error}")
+          for path in paths:
+              canonical = base + path
+              marker = "soft-guide-hero-grid" if not path else "skin-article-hero"
+              html = request(path,[canonical, marker, "Make Ramen To Get Rich", "G-8CMRKXJN4S", "<footer"])
+              assert not re.search(r'<meta[^>]+content="[^"]*noindex', html, re.I), f"Unindexable {path}"
+              print("LIVE 200 AND SEO OK: " + canonical, flush=True)
+          robots=request("robots.txt", ["Allow: /", "sitemap.xml"])
+          assert "Disallow: /" not in robots, "Site accidentally disallowed"
+          sitemap=request("sitemap.xml", ["how-to-play/", "gamepasses/"])
+          assert sitemap.count("<loc>") == 6, "Incorrect live sitemap page count"
+          print("LIVE PASS: 6/6 HTML pages, shared footer, GA4, indexability, robots.txt and sitemap.xml", flush=True)
+          PY
