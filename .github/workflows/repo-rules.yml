@@ -28,3 +28,32 @@ jobs:
       - run: npm run typecheck
       - run: npm run lint
       - run: npm run build
+      - name: Validate exported SEO pages and public files
+        run: |
+          node <<'NODE'
+          const fs = require('node:fs');
+          const path = require('node:path');
+          const assert = require('node:assert/strict');
+          const root = 'https://make-ramen-to-get-rich.github.io/';
+          const routes = ['', 'how-to-play', 'how-to-make-money', 'how-to-get-followers', 'mukbang-guide', 'gamepasses'];
+          const read = file => fs.readFileSync(path.join('out', file), 'utf8');
+          const sitemap = read('sitemap.xml');
+          for (const slug of routes) {
+            const file = slug ? path.join(slug,'index.html') : 'index.html';
+            const html = read(file);
+            const canonical = root + (slug ? slug + '/' : '');
+            assert(html.includes(canonical), 'Canonical missing: ' + canonical);
+            assert.equal((html.match(/<h1(?:\s[^>]*)?>/g)||[]).length, 1, 'H1 count: '+file);
+            assert(html.includes('G-8CMRKXJN4S'), 'GA4 missing: ' + file);
+            assert(html.includes('<title>'), 'Title missing: ' + file);
+            assert(html.includes('description'), 'Description missing: ' + file);
+            assert(html.includes('Make Ramen To Get Rich'), 'Game entity missing: ' + file);
+            assert(sitemap.includes('<loc>'+canonical+'</loc>'), 'Sitemap missing: ' + canonical);
+            for (const other of routes.slice(1)) assert(html.includes('/'+other+'/'), 'Navigation missing '+other+' on '+file);
+            assert(!/Yorich|交接立项|详情资料|prompt\s*instructions|AGENTS\.md|CLAUDE\.md/i.test(html), 'Internal phrase in '+file);
+          }
+          assert.equal((sitemap.match(/<loc>/g)||[]).length, 6, 'Unexpected sitemap URL count');
+          const robots = read('robots.txt');
+          assert(robots.includes('sitemap.xml'), 'robots.txt missing sitemap link');
+          console.log('Six export routes, sitemap, H1, canonical, GA4 and internal content checks passed.');
+          NODE
