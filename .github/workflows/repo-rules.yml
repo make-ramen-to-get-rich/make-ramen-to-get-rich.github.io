@@ -109,7 +109,10 @@ jobs:
                   const rect=heroImg?.getBoundingClientRect();
                   return {scrollWidth:document.documentElement.scrollWidth,innerWidth:window.innerWidth,footer:getComputedStyle(footer).display,nav:getComputedStyle(nav).display,navLinks:nav.querySelectorAll('a[href]').length,footerLinks:footer.querySelectorAll('a[href]').length,mainChars:main?.textContent?.length||0,h1Font:parseFloat(getComputedStyle(h1).fontSize),h1Count:document.querySelectorAll('h1').length,heroWidth:rect?.width??0,heroHeight:rect?.height??0,brand:document.querySelector('header a[href="/"]')?.textContent?.trim()||''};
                 });
-                assert(details.scrollWidth<=details.innerWidth+2,'Horizontal overflow '+device.name+' '+slug+' '+JSON.stringify(details));
+                if(details.scrollWidth>details.innerWidth+2) {
+                  const outliers=await page.evaluate(() => Array.from(document.querySelectorAll('main *')).map(el=>({el,r:el.getBoundingClientRect()})).filter(({r})=>r.right>innerWidth+3).slice(0,10).map(({el,r})=>({tag:el.tagName,cls:String(el.className).slice(0,60),right:Math.round(r.right),width:Math.round(r.width)})));
+                  throw new Error('Horizontal overflow '+device.name+' '+slug+' '+JSON.stringify({details,outliers}));
+                }
                 assert.equal(details.h1Count,1,'H1 '+device.name+' '+slug);
                 assert(details.h1Font>=28,'Unstyled H1 '+device.name+' '+slug);
                 assert(details.footer!=='none' && details.footerLinks>=8,'Missing footer links '+device.name+' '+slug);
