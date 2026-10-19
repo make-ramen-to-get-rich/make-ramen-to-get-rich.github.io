@@ -49,6 +49,18 @@ export function SkinHeader({ links, skin }: { links: InternalLink[]; skin: Theme
     </button>
   );
 
+  if (skin === "soft-guide") {
+    return (
+      <header className="skin-header skin-header-soft-guide">
+        <div className="site-container skin-header-top">
+          {brand}
+          {toggle}
+          {nav}
+        </div>
+      </header>
+    );
+  }
+
   if (skin === "resource") {
     return (
       <header className="skin-header skin-header-resource">

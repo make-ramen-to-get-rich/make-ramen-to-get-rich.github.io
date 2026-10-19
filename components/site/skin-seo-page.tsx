@@ -16,7 +16,7 @@ import { RelatedPages } from "./related-pages";
 export function SkinSeoPage({ page }: { page: SeoPageDefinition }) {
   const skin = siteSkin();
   const related = getRelatedPages(page);
-  const showAside = skin === "resource" || skin === "editorial" || skin === "horror";
+  const showAside = skin === "soft-guide" || skin === "resource" || skin === "editorial" || skin === "horror";
 
   return (
     <>

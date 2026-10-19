@@ -41,6 +41,57 @@ export function SkinHomePage() {
   const side = pages.slice(1, 3);
   const entries = pages.slice(0, 4);
 
+  if (skin === "soft-guide") {
+    return (
+      <>
+        <JsonLd data={homeSchemas(homePage)} />
+        <main className="soft-guide-home">
+          <section className="soft-guide-hero">
+            <div className="site-container soft-guide-hero-grid">
+              <div className="soft-guide-hero-copy">
+                <p className="eyebrow">{homePage.hero.eyebrow}</p>
+                <h1>{homePage.hero.heading}</h1>
+                <p className="soft-guide-hero-lead">{homePage.hero.lead}</p>
+                <p className="soft-guide-hero-support">{homePage.hero.supportingText}</p>
+                <Actions />
+                <div className="soft-guide-hero-facts" aria-label="Game facts">
+                  <span>Roblox</span>
+                  <span>By {siteConfig.game.developer}</span>
+                  <span>Independent game wiki</span>
+                </div>
+              </div>
+              <div className="soft-guide-hero-art">
+                <Banner className="soft-guide-cover" />
+                <p className="soft-guide-cover-caption">Make Ramen To Get Rich on Roblox</p>
+              </div>
+            </div>
+          </section>
+          <div className="site-container soft-guide-home-body">
+            <section className="soft-guide-directory" aria-labelledby="soft-guide-directory-title">
+              <p className="eyebrow">Game guides</p>
+              <h2 id="soft-guide-directory-title">Explore Make Ramen To Get Rich Guides</h2>
+              <p className="section-lead">Choose the exact question you want to solve: first steps, cash, followers, mukbang videos or gamepasses.</p>
+              <div className="soft-guide-directory-grid">
+                {pages.map((page) => (
+                  <Link key={page.slug} href={routePath(page.slug)} className="soft-guide-directory-card">
+                    <strong>{page.navLabel}</strong>
+                    <span>{page.description}</span>
+                    <span className="soft-guide-card-action">Read guide →</span>
+                  </Link>
+                ))}
+              </div>
+            </section>
+            <NativeAdSlot />
+            <div className="soft-guide-home-sections">
+              <PageSections sections={homePage.sections} />
+            </div>
+            {homePage.faq.length ? <Faq items={homePage.faq} /> : null}
+          </div>
+        </main>
+      </>
+    );
+  }
+
   return (
     <>
       <JsonLd data={homeSchemas(homePage)} />
