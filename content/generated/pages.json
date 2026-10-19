@@ -1,1 +1,1022 @@
-[]
+[
+  {
+    "enabled": true,
+    "slug": "how-to-play",
+    "pageType": "guide",
+    "navLabel": "How to Play",
+    "title": "Make Ramen To Get Rich How to Play – Beginner Guide",
+    "description": "Learn how to play Make Ramen To Get Rich on Roblox, from your first ramen bowl to your first mukbang video, with clear beginner checkpoints.",
+    "navVisible": true,
+    "hero": {
+      "eyebrow": "Make Ramen To Get Rich • Roblox guide",
+      "heading": "How to Play Make Ramen To Get Rich",
+      "lead": "Your first goal is to prepare ramen, record your character eating it, and finish your first video. The First Mukbang badge is officially described as posting your first video."
+    },
+    "sections": [
+      {
+        "id": "before",
+        "heading": "Before You Start Your First Session",
+        "intro": "Start at the correct Roblox experience, not a similarly named ramen restaurant simulator.",
+        "subsections": [
+          {
+            "heading": "Find the exact Roblox game by more ramen yum",
+            "paragraphs": [
+              "The game is Make Ramen To Get Rich by more ramen yum. Its Roblox Place ID is 102155891663543. Use the game's official listing rather than an unrelated Ramen Tycoon search result. The official description focuses on cooking, recording a mukbang and building a creator following.",
+              "Join through Roblox on a compatible device. Read the in-game tutorial and interface prompts as they appear: controls and screen labels may differ across devices and game updates."
+            ]
+          },
+          {
+            "heading": "Understand the creator loop",
+            "paragraphs": [
+              "A first session is easier when divided into three checkpoints: finish preparing a bowl, finish a recorded eating sequence, then inspect the displayed progress. Resist treating a visually finished dish as proof of a published video.",
+              "The Roblox platform's generic video-capture feature is not the same as publishing a mukbang within this game. For the First Mukbang goal, follow the experience's own instructions."
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "heading": "Prepare ramen",
+            "description": "Join the official game and follow its displayed cooking prompts until the current bowl is finished."
+          },
+          {
+            "heading": "Make a mukbang",
+            "description": "Follow the game's eating and video instructions; avoid confusing platform screen capture with an in-game post."
+          },
+          {
+            "heading": "Check progress",
+            "description": "Use the game's progress or badge feedback to see whether your first video registered."
+          }
+        ]
+      },
+      {
+        "id": "ramen",
+        "heading": "Step 1: Prepare Your First Ramen",
+        "intro": "The official gameplay starts with cooking. Use the interface visible in your own session instead of relying on an unverified shortcut.",
+        "subsections": [
+          {
+            "heading": "Locate your cooking interaction",
+            "paragraphs": [
+              "After joining, look for the currently available cooking interaction and read its on-screen instruction. If a prompt appears only near an object, move close enough to interact; the exact key or touch target must be taken from the current game screen.",
+              "Before spending any in-game currency, identify which interaction advances the introductory objective and whether a purchase is optional. This prevents confusing decorative store items with progression tasks."
+            ]
+          },
+          {
+            "heading": "Finish a bowl and check the state",
+            "paragraphs": [
+              "Complete the instructions in sequence and watch for visible confirmation that the food is ready. A changed dish appearance is not, by itself, evidence that an entire mukbang has been submitted.",
+              "If you cannot identify a completion signal, check the next objective or progress indicator instead of repeatedly performing random actions. The cooking stage and the video stage are distinct."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "mukbang",
+        "heading": "Step 2: Record and Finish Your First Mukbang",
+        "intro": "The game specifically asks players to record themselves eating ramen. The first posted video is an official achievement milestone.",
+        "subsections": [
+          {
+            "heading": "Use the game's own recording flow",
+            "paragraphs": [
+              "Read the in-experience prompts associated with eating or video posting and complete that sequence. Do not assume Roblox's general Captures menu publishes a video to the game's internal progression system.",
+              "Treat a successful camera animation, a completed game task and an awarded badge as different signals until the game explicitly connects them."
+            ]
+          },
+          {
+            "heading": "Check the First Mukbang milestone",
+            "paragraphs": [
+              "The official Roblox badge is called First Mukbang, with the description 'Post your first video'. After completing the task, inspect your progress or badge status rather than relying on an imagined exact success message.",
+              "If the achievement has not appeared, review the current objective and check whether the action has actually finished. A delayed badge display alone is not sufficient to prove that progress was lost."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "progress",
+        "heading": "Step 3: Understand Money, Followers and Next Goals",
+        "intro": "Money, follower count and video count serve different purposes. Keep them separate when evaluating progress.",
+        "subsections": [
+          {
+            "heading": "Track the three indicators independently",
+            "paragraphs": [
+              "Record your visible money and follower counters before and after a completed video if the current interface provides those numbers. Take a separate note of the number of videos posted; a follower increase is not proof that an additional video has registered.",
+              "For efficient play, change one variable at a time. This makes it easier to see whether the next improvement you buy affects money, followers or convenience."
+            ]
+          },
+          {
+            "heading": "Know the official achievements",
+            "paragraphs": [
+              "First Mukbang means one posted video, Regular means 50 posted videos, and Rising Star means 1,000 followers. These are three different milestones, not three consecutive cash levels.",
+              "The 50-video target can be tracked by subtracting the current displayed count from 50 if a total is provided; the 1,000-follower target uses a follower count instead of posted videos."
+            ]
+          }
+        ],
+        "table": {
+          "caption": "Official badge goals, from the Roblox game listing (checked October 19, 2026)",
+          "columns": [
+            "Badge",
+            "Published requirement",
+            "What to monitor"
+          ],
+          "rows": [
+            [
+              "First Mukbang",
+              "Post your first video",
+              "First completed post"
+            ],
+            [
+              "Regular",
+              "Post 50 videos",
+              "Video count"
+            ],
+            [
+              "Rising Star",
+              "Reach 1K followers",
+              "Follower total"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "troubleshooting",
+        "heading": "Beginner Troubleshooting",
+        "intro": "Work from the current game state and visible feedback instead of trying fixes borrowed from another Roblox title.",
+        "subsections": [
+          {
+            "heading": "Cooking interaction is not progressing",
+            "paragraphs": [
+              "Read the active on-screen objective and confirm that you are using an interaction associated with cooking rather than a store or cosmetic object. Keep a note of the step where the interface stops advancing.",
+              "If the game has just updated, the tutorial may not match older screenshots posted elsewhere. Use the currently displayed prompts as your source of control names."
+            ]
+          },
+          {
+            "heading": "Your first video seems unfinished",
+            "paragraphs": [
+              "First check whether the food and recording sequence both completed. Then look for the First Mukbang achievement or a posted-video count. The goal is to distinguish an incomplete task from an update in progress.",
+              "If you can see your first post but the badge is not visible, do not assume you must buy a pass. The badge description does not name a gamepass requirement."
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Full Mukbang Guide",
+            "slug": "mukbang-guide",
+            "description": "Distinguish the cooking, eating and in-game video stages."
+          },
+          {
+            "label": "Money Guide",
+            "slug": "how-to-make-money",
+            "description": "Measure actual cash changes and evaluate spending."
+          },
+          {
+            "label": "Followers Guide",
+            "slug": "how-to-get-followers",
+            "description": "Work toward the documented 1,000-follower goal."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "How do I start Make Ramen To Get Rich?",
+        "answer": "Open the official Roblox experience by more ramen yum, follow its cooking prompts, then work through its in-game mukbang sequence."
+      },
+      {
+        "question": "How do I post my first mukbang?",
+        "answer": "Follow the video-posting instructions inside the game after preparing ramen. The official First Mukbang badge is for posting your first video, not merely saving a Roblox Captures clip."
+      },
+      {
+        "question": "What does the First Mukbang badge mean?",
+        "answer": "The official Roblox game listing describes First Mukbang as 'Post your first video'."
+      },
+      {
+        "question": "What should I do after the first video?",
+        "answer": "Check video, follower and cash progress separately. Regular requires 50 posted videos, while Rising Star requires 1,000 followers."
+      }
+    ],
+    "relatedSlugs": [
+      "mukbang-guide",
+      "how-to-make-money",
+      "how-to-get-followers"
+    ],
+    "lastReviewed": "2026-10-19"
+  },
+  {
+    "enabled": true,
+    "slug": "how-to-make-money",
+    "pageType": "guide",
+    "navLabel": "Make Money",
+    "title": "Make Ramen To Get Rich How to Make Money Fast",
+    "description": "Find practical ways to make money in Make Ramen To Get Rich, understand the ramen-to-mukbang loop, and compare verified income and upgrade choices.",
+    "navVisible": true,
+    "hero": {
+      "eyebrow": "Make Ramen To Get Rich • Roblox guide",
+      "heading": "How to Make Money in Make Ramen To Get Rich",
+      "lead": "Build a repeatable cook-and-mukbang routine, then compare actual cash changes over equal-length sessions before deciding which upgrades help."
+    },
+    "sections": [
+      {
+        "id": "cash-loop",
+        "heading": "How Money Is Connected to Mukbangs",
+        "intro": "The game links ramen preparation, recording and becoming a rich mukbang creator in its official description. Exact payouts must come from the current game.",
+        "subsections": [
+          {
+            "heading": "Follow the documented gameplay loop",
+            "paragraphs": [
+              "The official Roblox description identifies three parts of the experience: cook ramen, record yourself eating it, and work toward becoming a successful mukbang creator. It does not document every interface control, cash formula, or gamepass effect.",
+              "Finishing the meal and completing the creator sequence are meaningful checkpoints. However, the official listing does not specify that every bowl produces a fixed amount or that follower count multiplies cash."
+            ]
+          },
+          {
+            "heading": "Identify when your balance changes",
+            "paragraphs": [
+              "Take a reading of your cash display, if present, immediately before beginning a session and again after completing the in-game video workflow. That observation answers more than an unsupported 'best recipe' claim.",
+              "If your cash changes at multiple moments, record each moment separately. Do not credit an entire increase to cooking alone when another reward, pass or bonus may also have been active."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "A Repeatable Early-Game Earning Routine",
+        "intro": "The fastest method cannot be established without measured in-game results. Start with a controlled baseline that any player can repeat.",
+        "subsections": [
+          {
+            "heading": "Complete the full loop first",
+            "paragraphs": [
+              "Begin with an accessible cooking task, finish the eating and recording sequence, and allow any progress screen to finish updating. Verify the completed post before starting another attempt.",
+              "For the first three cycles, prefer consistency over experimenting with lots of purchases. Multiple simultaneous changes make it hard to identify what actually increased your earnings."
+            ]
+          },
+          {
+            "heading": "Run repeatable sessions",
+            "paragraphs": [
+              "Choose a clear start and stop event, such as immediately before cooking and immediately after the completed post. Note any pauses, waiting, menu time and unexpected interruptions.",
+              "Repeat the routine under similar conditions. A single lucky or unusual reward is not proof of a reliable income strategy."
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "heading": "Measure a starting balance",
+            "description": "Write down the cash displayed immediately before a new cooking-and-recording cycle."
+          },
+          {
+            "heading": "Complete one cycle",
+            "description": "Finish the available ramen and mukbang objectives while timing the same start and end points."
+          },
+          {
+            "heading": "Compare the result",
+            "description": "Record the ending balance, any known costs and total elapsed time before trying an upgrade."
+          }
+        ]
+      },
+      {
+        "id": "measurement",
+        "heading": "How to Compare Earnings Per Session",
+        "intro": "Use a simple manual worksheet rather than fabricated 'cash per minute' claims.",
+        "subsections": [
+          {
+            "heading": "Use net change, not a flashy reward popup",
+            "paragraphs": [
+              "If your account shows starting cash C1 and ending cash C2, the observed change is C2 − C1. If you deliberately spend cash during the cycle, record that spending separately to understand where it went.",
+              "When the complete reward or spending breakdown is unknown, describe the number as an observed balance change. Do not call it net profit or a fixed game payout formula."
+            ]
+          },
+          {
+            "heading": "Compare equal conditions",
+            "paragraphs": [
+              "With a time value in minutes, observed cash-change rate is (C2 − C1) / minutes. This is a measurement you can calculate, not a published game guarantee.",
+              "Compare at least three runs with and without a single adjustment. Note whether a pass, promotion, reward streak or server update could be affecting the outcome."
+            ]
+          }
+        ],
+        "table": {
+          "caption": "Copy this worksheet for your own session; values are intentionally left for your real observations",
+          "columns": [
+            "Record",
+            "Before session",
+            "After session",
+            "Elapsed time",
+            "Conditions"
+          ],
+          "rows": [
+            [
+              "Baseline A",
+              "Your cash value",
+              "Your cash value",
+              "Measured minutes",
+              "No new purchases"
+            ],
+            [
+              "Baseline B",
+              "Your cash value",
+              "Your cash value",
+              "Measured minutes",
+              "Same approach"
+            ],
+            [
+              "One change",
+              "Your cash value",
+              "Your cash value",
+              "Measured minutes",
+              "Exactly one changed variable"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "upgrades",
+        "heading": "Which Upgrades Are Worth Considering?",
+        "intro": "Not every named gamepass solves the same problem, and purchase price alone does not establish payback.",
+        "subsections": [
+          {
+            "heading": "Free progress before paid boosts",
+            "paragraphs": [
+              "Determine the result of your existing cook-and-record loop before evaluating premium options. A free baseline lets you notice whether a purchase is helpful for your actual goal.",
+              "Compare purchases against the bottleneck you observe: completing videos, accumulating cash, growing followers or reducing repeated manual actions. A cosmetic choice need not have any economic return."
+            ]
+          },
+          {
+            "heading": "What the 2x Cash label does and does not prove",
+            "paragraphs": [
+              "A pass named '2x Cash' appears in a public third-party store listing for this experience. Its current cost, exact qualifying transactions and interaction with other rewards must be checked in the Roblox purchase screen.",
+              "Only buy through Roblox's own purchase interface. Avoid calculators that promise an exact payback period without observed payouts and an official description of what the pass affects."
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Current Gamepass Guide",
+            "slug": "gamepasses",
+            "description": "Compare optional passes by their stated use, not guesses about ROI."
+          },
+          {
+            "label": "Mukbang Recording Guide",
+            "slug": "mukbang-guide",
+            "description": "Complete the in-game video workflow before measuring results."
+          }
+        ]
+      },
+      {
+        "id": "mistakes",
+        "heading": "Money-Making Mistakes and FAQs",
+        "intro": "Keep decisions tied to what you can observe.",
+        "subsections": [
+          {
+            "heading": "Do not mistake a video count for cash",
+            "paragraphs": [
+              "The Regular achievement explicitly tracks posted videos; Rising Star tracks followers. Neither badge description states a guaranteed payout. Keep separate records for all three measures."
+            ]
+          },
+          {
+            "heading": "Avoid prematurely buying a boost",
+            "paragraphs": [
+              "Take several clean baseline measurements first. If an upgrade has a stated Robux cost but no reliably measured extra earnings, its cash ROI remains unknown until you test.",
+              "If a version update changes the economy, start a fresh measurement set rather than mixing before-and-after results."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "What is the fastest way to make money in Make Ramen To Get Rich?",
+        "answer": "Complete the official cooking and mukbang loop, measure actual cash change across several sessions, and improve the slowest step you observe. No fixed fastest payout has been established here."
+      },
+      {
+        "question": "Does recording videos help you earn cash?",
+        "answer": "The game's official description connects making ramen and recording mukbang videos to becoming rich, but does not publish a precise cash payout mechanism."
+      },
+      {
+        "question": "Is 2x Cash worth it?",
+        "answer": "Check the official Roblox shop description and price, then compare your own cash change with a free baseline. Do not assume every reward is doubled."
+      },
+      {
+        "question": "Should I upgrade first or keep recording?",
+        "answer": "Test a few complete cycles without extra purchases first. An upgrade is easier to evaluate after you know how much time and cash your normal session takes."
+      }
+    ],
+    "relatedSlugs": [
+      "mukbang-guide",
+      "gamepasses",
+      "how-to-get-followers"
+    ],
+    "lastReviewed": "2026-10-19"
+  },
+  {
+    "enabled": true,
+    "slug": "how-to-get-followers",
+    "pageType": "guide",
+    "navLabel": "Get Followers",
+    "title": "Make Ramen To Get Rich How to Get Followers Fast",
+    "description": "Learn how to get followers in Make Ramen To Get Rich, track your mukbang progress, and work toward the verified 1K-follower Rising Star badge.",
+    "navVisible": true,
+    "hero": {
+      "eyebrow": "Make Ramen To Get Rich • Roblox guide",
+      "heading": "How to Get Followers in Make Ramen To Get Rich",
+      "lead": "The confirmed follower target is 1,000: the official Rising Star badge says 'Reach 1K followers'. Use repeatable mukbang sessions to monitor actual follower growth."
+    },
+    "sections": [
+      {
+        "id": "milestone",
+        "heading": "The First Follower Milestone: Rising Star",
+        "intro": "This page focuses on followers rather than cash or videos so the goal stays measurable.",
+        "subsections": [
+          {
+            "heading": "Rising Star requires 1K followers",
+            "paragraphs": [
+              "Roblox lists Rising Star as reaching one thousand followers. That is a follower-counter objective, not a reward for publishing fifty videos or saving fifty recordings.",
+              "If you are at F followers, the remaining distance is 1,000 − F while F is below 1,000. For example, this subtraction describes your remaining target; it does not predict how many mukbang videos you need."
+            ]
+          },
+          {
+            "heading": "Keep First Mukbang and Regular separate",
+            "paragraphs": [
+              "First Mukbang is the first posted video. Regular means posting 50 videos. These confirm separate video-production milestones and should not be confused with the follower total.",
+              "If you want an early practical objective, complete the first video and verify its progress before planning a larger follower-growth routine."
+            ]
+          }
+        ],
+        "table": {
+          "caption": "Official Roblox milestone definitions (checked October 19, 2026)",
+          "columns": [
+            "Milestone",
+            "Required measure",
+            "Target"
+          ],
+          "rows": [
+            [
+              "First Mukbang",
+              "Videos posted",
+              "1"
+            ],
+            [
+              "Rising Star",
+              "Followers",
+              "1,000"
+            ],
+            [
+              "Regular",
+              "Videos posted",
+              "50"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "videos",
+        "heading": "How to Gain Followers Through Mukbang Videos",
+        "intro": "The game's official premise is becoming a well-known mukbang creator by cooking and recording. A specific follower-per-video formula is not published.",
+        "subsections": [
+          {
+            "heading": "Complete genuine in-game posts",
+            "paragraphs": [
+              "Prepare ramen, follow the current in-game video workflow and confirm that the video is posted. Focus on repeating complete creator actions rather than relying on an unverified 'free followers' trick.",
+              "Roblox's built-in Captures tool stores ordinary clips of an experience. It should not be treated as the game's internal video-posting feature or a proven way to add followers."
+            ]
+          },
+          {
+            "heading": "Read the actual follower counter",
+            "paragraphs": [
+              "Record your follower count before and after a completed video if the interface makes the number visible. Use the difference as an observed result for that session, not a universal payout.",
+              "If there was also a login reward, promotion or paid booster, mark that observation separately. A controlled comparison is more useful than an arbitrary 'followers per minute' claim."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "routine",
+        "heading": "A Beginner Follower-Growth Routine",
+        "intro": "Make each session short enough to track, but long enough to complete a whole video cycle.",
+        "subsections": [
+          {
+            "heading": "Three-session baseline",
+            "paragraphs": [
+              "Start with a follower count, complete one video, note the ending count, and repeat. Three observations help reveal if progress is consistent or varies between posts.",
+              "If all sessions differ, do not immediately conclude the game is broken. Check whether the same actions and conditions were used each time."
+            ]
+          },
+          {
+            "heading": "Plan to 1,000 from your own data",
+            "paragraphs": [
+              "Once you know an observed follower increase per completed cycle, you may estimate remaining attempts as (1,000 − current followers) / observed increase. Treat that result as a conditional estimate, not a guarantee.",
+              "If your measured increase is zero, there is no meaningful number of attempts to predict. Verify the game event and counter you are tracking first."
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "heading": "Record the starting count",
+            "description": "Read the follower counter before a complete mukbang session."
+          },
+          {
+            "heading": "Finish one in-game video",
+            "description": "Complete the game-directed recording and posting process."
+          },
+          {
+            "heading": "Review the difference",
+            "description": "Compare follower totals and track a separate video count."
+          }
+        ]
+      },
+      {
+        "id": "twox",
+        "heading": "What Does the 2x Followers Gamepass Do?",
+        "intro": "A public third-party store index lists an item named '2x Followers' for this experience; the exact current terms depend on the official Roblox purchase screen.",
+        "subsections": [
+          {
+            "heading": "Read the official item details first",
+            "paragraphs": [
+              "Before paying, open the in-game or Roblox store, check the product name, full description, amount of Robux and what rewards are eligible. Do not assume the label doubles every follower source without a stated scope.",
+              "A difference between a store label and observed gameplay should be investigated before treating the pass as a proven shortcut."
+            ]
+          },
+          {
+            "heading": "Compare against a free baseline",
+            "paragraphs": [
+              "Measure a few sessions without the pass. If you eventually buy it, compare equivalent completed sessions and keep any new gameplay changes separate. A multiplier may be irrelevant when the real obstacle is completing posts.",
+              "For more about premium choices, use the dedicated gamepasses page instead of treating follower growth as a shopping-only problem."
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Gamepass Comparison",
+            "slug": "gamepasses",
+            "description": "Review 2x Followers and optional boosts."
+          },
+          {
+            "label": "Mukbang Guide",
+            "slug": "mukbang-guide",
+            "description": "Follow the full cook, eat and video loop."
+          }
+        ]
+      },
+      {
+        "id": "tracking",
+        "heading": "Follower Questions and Progress Tracking",
+        "intro": "Keep a simple activity log rather than claiming a magic rate.",
+        "subsections": [
+          {
+            "heading": "Useful session log",
+            "paragraphs": [
+              "Record date, follower count before, follower count after, posted-video count before and after, and any paid pass that was active. A screenshot of the counters helps when values change after an update.",
+              "Use consistent session boundaries, since checking counts at arbitrary moments can mix several different rewards and lead to a false conclusion."
+            ]
+          },
+          {
+            "heading": "When the count appears unchanged",
+            "paragraphs": [
+              "First confirm the in-game video was completed. Then compare the correct follower counter rather than likes, money or Roblox profile followers. Those represent different systems.",
+              "If the game changes its interface, re-establish the baseline instead of trusting an old exact button sequence."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "How many followers do I need for Rising Star?",
+        "answer": "The official Roblox badge description says 'Reach 1K followers', meaning 1,000 followers."
+      },
+      {
+        "question": "Do 50 videos automatically give 1K followers?",
+        "answer": "No such conversion is established. Regular is defined by 50 posted videos; Rising Star is a separate 1,000-follower milestone."
+      },
+      {
+        "question": "Does 2x Followers work on every source?",
+        "answer": "The specific applicability needs to be read from the current official shop description. The pass name alone does not prove its exact behavior."
+      },
+      {
+        "question": "Are Roblox profile followers the same as in-game followers?",
+        "answer": "Track the follower total associated with the experience's Rising Star objective rather than assuming unrelated Roblox account metrics count."
+      }
+    ],
+    "relatedSlugs": [
+      "mukbang-guide",
+      "gamepasses",
+      "how-to-play"
+    ],
+    "lastReviewed": "2026-10-19"
+  },
+  {
+    "enabled": true,
+    "slug": "mukbang-guide",
+    "pageType": "guide",
+    "navLabel": "Mukbang Guide",
+    "title": "Make Ramen To Get Rich Mukbang Guide – Record Videos",
+    "description": "A Make Ramen To Get Rich mukbang guide for recording your ramen videos, checking completion, and understanding the First Mukbang milestone on Roblox.",
+    "navVisible": true,
+    "hero": {
+      "eyebrow": "Make Ramen To Get Rich • Roblox guide",
+      "heading": "Make Ramen To Get Rich Mukbang Guide",
+      "lead": "A mukbang in this Roblox game centers on making ramen and recording yourself eating it. The official First Mukbang milestone rewards your first posted video."
+    },
+    "sections": [
+      {
+        "id": "meaning",
+        "heading": "What Counts as a Mukbang in the Game?",
+        "intro": "A mukbang is an eating-video concept; here it is part of the game's own creator progression.",
+        "subsections": [
+          {
+            "heading": "The game's creator loop",
+            "paragraphs": [
+              "The official description says to cook ramen, record yourself eating it and become a rich and famous mukbanger. These are the core activities documented by Roblox for Make Ramen To Get Rich.",
+              "This is not a traditional restaurant simulator about serving a queue of customers. Nor is it a general tutorial for uploading real-world videos to a streaming platform."
+            ]
+          },
+          {
+            "heading": "The First Mukbang badge",
+            "paragraphs": [
+              "Roblox names the badge First Mukbang and defines it as 'Post your first video'. This provides a clear result to check after using the in-game creator workflow.",
+              "A Roblox capture saved to your local gallery is a different action from an in-game posted mukbang. Do not confuse the two when trying to advance the First Mukbang goal."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "prepare",
+        "heading": "Prepare the Ramen Before Recording",
+        "intro": "The first documented part of the official game cycle is to cook the food you will eat.",
+        "subsections": [
+          {
+            "heading": "Start from an available cooking task",
+            "paragraphs": [
+              "Follow the current game's cooking prompts to assemble or prepare the available ramen. The official listing does not specify ingredient names, a cooking timer or a mandatory high-value recipe.",
+              "Do not buy add-on food packs just because their names appear in the store. The existence of an optional product does not demonstrate it is required to post your first video."
+            ]
+          },
+          {
+            "heading": "Know when to move to the video stage",
+            "paragraphs": [
+              "Look for the game's visible indication that the cooking task is complete and the next step is available. Follow the prompts shown in the running experience; precise control names can vary by version or device.",
+              "If the next objective is unclear, check whether your character still has an unfinished food interaction. Moving ahead prematurely can make it harder to determine why a post has not counted."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "post",
+        "heading": "How to Record and Post a Mukbang Video",
+        "intro": "Treat recording, eating and posting as distinct checkpoints until the game itself confirms the complete sequence.",
+        "subsections": [
+          {
+            "heading": "Find the in-game recording flow",
+            "paragraphs": [
+              "Read the current on-screen instructions for the game's creator task. This guide deliberately distinguishes the in-game mukbang sequence from the standard Roblox menu used to record a video clip.",
+              "If your objective is specifically the First Mukbang badge, the authoritative target is a posted in-game video. A clip stored by Roblox Captures may be useful as a personal recording, but is not proof the game received a post."
+            ]
+          },
+          {
+            "heading": "Complete the eating and recording interaction",
+            "paragraphs": [
+              "Follow the active instructions through the eating sequence and any remaining in-game video task. Do not assume a specific Record button, camera location or number of bites unless those details are visible in your version."
+            ]
+          },
+          {
+            "heading": "Confirm the post",
+            "paragraphs": [
+              "Check an in-game completed-video indicator or the associated official badge once the sequence finishes. The displayed evidence is more reliable than a guessed rule such as 'record for exactly 30 seconds'."
+            ]
+          }
+        ],
+        "steps": [
+          {
+            "heading": "Cook",
+            "description": "Prepare the ramen using the actual instructions displayed in the Roblox experience."
+          },
+          {
+            "heading": "Record the mukbang",
+            "description": "Use the game's own eating and recording task, not merely the Roblox Captures gallery."
+          },
+          {
+            "heading": "Confirm posting",
+            "description": "Check the completed video or First Mukbang achievement before starting the next cycle."
+          }
+        ]
+      },
+      {
+        "id": "badges",
+        "heading": "Check Video Progress and Related Badges",
+        "intro": "There are two confirmed video-count milestones and a separate follower target.",
+        "subsections": [
+          {
+            "heading": "First Mukbang and Regular",
+            "paragraphs": [
+              "First Mukbang means posting the first video. Regular means 50 posted videos. You can use these as concrete completion goals without inventing other tiers or unlock requirements.",
+              "Track how many videos are completed, not how many partial recordings were attempted. A successful visual animation is not a substitute for confirmed posted-video progress."
+            ]
+          },
+          {
+            "heading": "Separate the follower milestone",
+            "paragraphs": [
+              "Rising Star requires 1,000 followers. Because this is a different measure, a player may need a separate follower-tracking plan even while steadily publishing videos.",
+              "You can use the follower page for a repeatable progress log and the money page for a cash comparison; those two questions do not need to dilute the video tutorial."
+            ]
+          }
+        ],
+        "table": {
+          "caption": "Badge definitions from the Roblox game listing",
+          "columns": [
+            "Badge",
+            "Official target"
+          ],
+          "rows": [
+            [
+              "First Mukbang",
+              "Post your first video"
+            ],
+            [
+              "Regular",
+              "Post 50 videos"
+            ],
+            [
+              "Rising Star",
+              "Reach 1K followers"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "problems",
+        "heading": "Troubleshooting and Next Steps",
+        "intro": "Use the objective the game currently shows to identify which stage has not completed.",
+        "subsections": [
+          {
+            "heading": "No video option or uncounted post",
+            "paragraphs": [
+              "Confirm your cooking task completed, then read the next on-screen prompt. If a video does not count, distinguish an interrupted recording from a finished in-game post and check whether the badge status has updated.",
+              "Do not assume that paying for Auto Tips or another pass will repair an incomplete first recording; no official badge description lists a paid requirement."
+            ]
+          },
+          {
+            "heading": "What to pursue next",
+            "paragraphs": [
+              "After the first successful post, work toward Regular's 50 posted videos or Rising Star's 1,000 followers. If your goal is currency, measure cash changes before and after complete sessions.",
+              "For detailed first-session checkpoints, see the beginner guide. For economy or growth questions, use the separate focused guides instead of searching for unrelated real-world mukbang apps."
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "First Session Guide",
+            "slug": "how-to-play",
+            "description": "Start with cooking and your first video."
+          },
+          {
+            "label": "Follower Milestones",
+            "slug": "how-to-get-followers",
+            "description": "Understand the 1K goal."
+          },
+          {
+            "label": "Earning Guide",
+            "slug": "how-to-make-money",
+            "description": "Measure game cash changes."
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "How do I post a mukbang video in Make Ramen To Get Rich?",
+        "answer": "Prepare ramen and follow the Roblox experience's own eating, recording and posting prompts. The First Mukbang badge is defined as posting your first video."
+      },
+      {
+        "question": "Is the Roblox Captures menu the same as an in-game mukbang?",
+        "answer": "No. Roblox Captures records a clip to a gallery; it is not evidence that the experience has registered an internal mukbang post."
+      },
+      {
+        "question": "How do I get the First Mukbang badge?",
+        "answer": "The official badge requirement is to post your first video within Make Ramen To Get Rich."
+      },
+      {
+        "question": "What is the Regular badge?",
+        "answer": "Roblox describes Regular as 'Post 50 videos'."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-play",
+      "how-to-get-followers",
+      "how-to-make-money"
+    ],
+    "lastReviewed": "2026-10-19"
+  },
+  {
+    "enabled": true,
+    "slug": "gamepasses",
+    "pageType": "guide",
+    "navLabel": "Gamepasses",
+    "title": "Make Ramen To Get Rich Gamepasses – Prices & Perks",
+    "description": "Explore Make Ramen To Get Rich gamepasses, from 2x Followers and 2x Cash to Auto Tips. Check verified shop prices, perks, and update dates.",
+    "navVisible": true,
+    "hero": {
+      "eyebrow": "Make Ramen To Get Rich • Roblox guide",
+      "heading": "Make Ramen To Get Rich Gamepasses",
+      "lead": "Compare optional passes by their intended goal. Confirm the current Robux amount, description and availability inside the official Roblox purchase screen before paying."
+    },
+    "sections": [
+      {
+        "id": "current",
+        "heading": "Current Gamepasses at a Glance",
+        "intro": "A public game index associated with Universe ID 10769876151 lists growth, convenience and cosmetic-sounding passes. Names below are historical listing signals, not an official real-time price quote.",
+        "subsections": [
+          {
+            "heading": "Confirm the official name and Robux total",
+            "paragraphs": [
+              "Open Make Ramen To Get Rich by more ramen yum on Roblox, select Store or the in-experience purchase entry, and read the actual pass details. The purchase screen is the source of the amount your account would pay.",
+              "A third-party snapshot published October 19, 2026 listed 16 passes, but showed conflicting values for some products between its update history and store section. Therefore this guide does not present those inconsistent cached values as official checkout prices."
+            ]
+          },
+          {
+            "heading": "Understand categories before buying",
+            "paragraphs": [
+              "Growth-related names in that index include 2x Followers, 2x Cash and 2x Luck. Convenience names include Auto Tips and Auto Collect. Other offerings reference weather, sound, food presentation or a space theme; their exact function must be read from the actual store listing.",
+              "A name containing '2x' is not proof that every reward source doubles, and a VIP label does not establish the perks, term or renewal policy."
+            ]
+          }
+        ],
+        "table": {
+          "caption": "Names observed in public game-store indexing on October 19, 2026; verify current Roblox details before purchase",
+          "columns": [
+            "Observed pass",
+            "Likely shopping goal",
+            "Where to confirm"
+          ],
+          "rows": [
+            [
+              "2x Followers",
+              "Follower progression",
+              "Official Roblox Store"
+            ],
+            [
+              "2x Cash",
+              "Cash progression",
+              "Official Roblox Store"
+            ],
+            [
+              "2x Luck",
+              "Luck-related boost",
+              "Official Roblox Store"
+            ],
+            [
+              "Auto Tips",
+              "Convenience or automation",
+              "Official Roblox Store"
+            ],
+            [
+              "Auto Collect",
+              "Convenience or automation",
+              "Official Roblox Store"
+            ],
+            [
+              "VIP",
+              "Premium benefits",
+              "Official Roblox Store"
+            ]
+          ]
+        }
+      },
+      {
+        "id": "growth",
+        "heading": "Growth-Related Passes",
+        "intro": "Match a stated product benefit to the metric you actually need to improve.",
+        "subsections": [
+          {
+            "heading": "2x Followers",
+            "paragraphs": [
+              "A publicly indexed pass bears this name. Check the official description for eligibility, whether a purchase is one-time, and which in-game follower sources qualify before assuming universal doubling.",
+              "A player trying to reach the Rising Star badge can record their normal follower changes first. This provides a sensible comparison against any future boosted sessions."
+            ]
+          },
+          {
+            "heading": "2x Cash and 2x Luck",
+            "paragraphs": [
+              "The same public index lists items named 2x Cash and 2x Luck. The name of each suggests a different target metric, but an actual effect or payout calculation requires the official product text and play observations.",
+              "If you mainly want cash, track balance differences across sessions; if you mainly want followers, track that counter instead. Buying a pass merely because it is popular does not tell you whether it solves your bottleneck."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "automation",
+        "heading": "Automation and Convenience Passes",
+        "intro": "Convenience features should be judged by which repeated action they remove, not by an invented cash-per-hour figure.",
+        "subsections": [
+          {
+            "heading": "Auto Tips",
+            "paragraphs": [
+              "The game activity index reported a new pass named Auto Tips on October 17, 2026. Read the current Roblox description to learn what it automates, what it costs and whether it works while offline; none of those details follows from the name alone.",
+              "A convenience purchase may be worthwhile for a player with repetitive work even without a cash multiplier. Compare time saved against the actual task you repeat."
+            ]
+          },
+          {
+            "heading": "Auto Collect and VIP",
+            "paragraphs": [
+              "Auto Collect and VIP also appear in the public game's pass index. That index gave inconsistent cached Robux amounts for both, so exact pricing should be taken from Roblox at checkout rather than reproduced here.",
+              "VIP is a marketing label that can mean many different things. Check the specific benefits before comparing it with a narrower pass."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "optional",
+        "heading": "Cosmetic and Optional Packs",
+        "intro": "Some indexed items have presentation-oriented names. Their existence does not mean they increase income.",
+        "subsections": [
+          {
+            "heading": "Weather and ambience",
+            "paragraphs": [
+              "Ocean Waves Sound, Cotton Candy Sky, Thunderstorm Pack and Falling Stars Weather appear as named offerings in the October 19 index. Read their descriptions for the actual visual or audio scope and current availability.",
+              "Presentation purchases can be enjoyable in a creator-themed game. Do not describe them as required income upgrades without supporting game evidence."
+            ]
+          },
+          {
+            "heading": "Food and room-themed products",
+            "paragraphs": [
+              "The index also names Bento For 4, Big Bento, Fruit Mix, Fruit Platter, Big Fruit Platter and Sky Loft Penthouse. Verify whether the offer is a permanent pass, one-time purchase or other type of in-game product on Roblox itself.",
+              "Keep consumables and passes distinct when estimating value. A food-themed name does not establish additional followers or a guaranteed cash multiplier."
+            ]
+          }
+        ]
+      },
+      {
+        "id": "buy",
+        "heading": "Which Pass Should You Buy First?",
+        "intro": "A careful purchase decision starts with the free gameplay loop and the game goal you care about.",
+        "subsections": [
+          {
+            "heading": "Choose by your documented goal",
+            "paragraphs": [
+              "If followers are your target, read 2x Followers first. If you want cash, investigate 2x Cash. If repeated collection is slowing you down, compare Auto Collect or Auto Tips. If you want aesthetic changes, inspect the ambience and decorative offerings.",
+              "This order is a shopping research sequence, not a claim that one pass is objectively best for all players."
+            ]
+          },
+          {
+            "heading": "Record the real cost and a baseline",
+            "paragraphs": [
+              "Before purchasing, note the official Robux amount displayed to your account and the full benefit description. Complete a few free sessions first so you understand your existing pace and whether the purchase could affect it.",
+              "Use only official Roblox checkout for payments. A third-party site's cached price or a social-media promise is not a guarantee of checkout pricing or refunds."
+            ]
+          }
+        ],
+        "links": [
+          {
+            "label": "Follower Growth Guide",
+            "slug": "how-to-get-followers",
+            "description": "Understand the Rising Star milestone."
+          },
+          {
+            "label": "Money Guide",
+            "slug": "how-to-make-money",
+            "description": "Compare cash results before making paid decisions."
+          }
+        ]
+      },
+      {
+        "id": "sources",
+        "heading": "Shop Verification and Change Log",
+        "intro": "The source hierarchy for this guide is the current Roblox Store, then the official game listing, with third-party indexing serving only as a dated list of candidates.",
+        "subsections": [
+          {
+            "heading": "Where the information came from",
+            "paragraphs": [
+              "Official game: roblox.com/games/102155891663543/Make-Ramen-To-Get-Rich. Supplemental indexed store listing: roterminal.co/g/10769876151-make-ramen-to-get-rich, observed October 19, 2026.",
+              "The universe number identifies the game in the third-party index; the numeric identifier in the Roblox games URL is the Place ID. They are different IDs and are not interchangeable."
+            ]
+          },
+          {
+            "heading": "Why prices are not fixed in this guide",
+            "paragraphs": [
+              "The October 19 third-party page listed Auto Collect and VIP with conflicting values across its own sections. Personalized pricing and later product changes can also make a screenshot stale.",
+              "To make a purchase today, open the official Roblox store for your account and rely on its price and description at the moment you confirm the transaction."
+            ]
+          }
+        ]
+      }
+    ],
+    "faq": [
+      {
+        "question": "What gamepasses does Make Ramen To Get Rich have?",
+        "answer": "An October 19, 2026 public store index includes 2x Followers, 2x Cash, 2x Luck, Auto Tips, Auto Collect, VIP and optional themed offerings. Confirm the current catalog directly in Roblox."
+      },
+      {
+        "question": "How much does 2x Followers cost?",
+        "answer": "Use the current amount shown by the official Roblox Store for your account. A cached third-party listing is not a reliable checkout quote."
+      },
+      {
+        "question": "Is Auto Tips worth buying?",
+        "answer": "Read the official pass benefit and compare the time it would save you with your current routine; the pass name alone does not establish an earnings rate."
+      },
+      {
+        "question": "Do I need gamepasses to play?",
+        "answer": "The official Roblox game description presents the core cooking-and-mukbang loop without naming a pass requirement. Check the current game prompts before purchasing optional items."
+      }
+    ],
+    "relatedSlugs": [
+      "how-to-make-money",
+      "how-to-get-followers",
+      "how-to-play"
+    ],
+    "lastReviewed": "2026-10-19"
+  }
+]

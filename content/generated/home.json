@@ -2,29 +2,268 @@
   "enabled": true,
   "slug": "",
   "pageType": "home",
-  "title": "Make Ramen To Get Rich Guide",
-  "description": "Guides, walkthroughs, tips, updates, and reference information for Make Ramen To Get Rich.",
+  "title": "Make Ramen To Get Rich Wiki – Roblox Guides & Tips",
+  "description": "Make Ramen To Get Rich Roblox wiki with clear guides for your first mukbang, earning money, growing followers, recording videos, and gamepasses.",
   "navVisible": true,
   "hero": {
-    "eyebrow": "Game guide",
-    "heading": "Make Ramen To Get Rich",
-    "lead": "Guides, walkthroughs, tips, updates, and reference information for Make Ramen To Get Rich.",
-    "supportingText": "Browse current game information and practical guides.",
+    "eyebrow": "Independent Roblox game wiki",
+    "heading": "Make Ramen To Get Rich Wiki",
+    "lead": "Make Ramen To Get Rich is a Roblox game by more ramen yum: cook ramen, record yourself eating it, and build a following.",
+    "supportingText": "Choose a focused guide below, or open the official Roblox experience. The site is independently maintained and is not affiliated with Roblox or the developer.",
+    "primaryLink": {
+      "label": "Start the beginner guide",
+      "slug": "how-to-play"
+    },
     "secondaryLink": {
-      "label": "Open official game page",
-      "url": "https://www.roblox.com/games/102155891663543"
+      "label": "Play on Roblox",
+      "url": "https://www.roblox.com/games/102155891663543/Make-Ramen-To-Get-Rich"
     }
   },
   "sections": [
     {
-      "id": "start-here",
-      "heading": "Game information",
-      "paragraphs": [
-        "Current Make Ramen To Get Rich guides and reference information will be published here."
+      "id": "what-is",
+      "heading": "What Is Make Ramen To Get Rich?",
+      "intro": "A cooking-and-mukbang creator simulator on Roblox, not a real-life ramen recipe website or a conventional restaurant-serving tycoon.",
+      "subsections": [
+        {
+          "heading": "Developer and the official Roblox game link",
+          "paragraphs": [
+            "The developer shown on the official Roblox listing is more ramen yum. The game's Place ID is 102155891663543 and Universe ID is 10769876151; the first is used in the game URL, while the second is used by some game-data indexes.",
+            "Its recent public listings have shown both Testing and RELEASE labels at different capture times. The core gameplay description, rather than a label from an older cached page, is the stable way to recognize the correct title."
+          ]
+        },
+        {
+          "heading": "The cook → record → grow gameplay loop",
+          "paragraphs": [
+            "The official listing highlights cooking ramen, recording yourself eating it and becoming a rich and famous mukbanger. A mukbang is an eating-focused video, so posting creator content is central to the game's identity.",
+            "That difference matters: a guide about customers in a ramen restaurant, a recipe for real broth or another Roblox Ramen Tycoon is not the same experience. Use the creator-game workflow and check the live on-screen objectives for controls."
+          ]
+        }
+      ],
+      "table": {
+        "caption": "Verified game identity; source: official Roblox listing, reviewed October 19, 2026",
+        "columns": [
+          "Fact",
+          "Detail"
+        ],
+        "rows": [
+          [
+            "Name",
+            "Make Ramen To Get Rich"
+          ],
+          [
+            "Platform",
+            "Roblox"
+          ],
+          [
+            "Developer",
+            "more ramen yum"
+          ],
+          [
+            "Place ID",
+            "102155891663543"
+          ],
+          [
+            "Universe ID",
+            "10769876151"
+          ],
+          [
+            "Main loop",
+            "Cook ramen → record eating → grow as a mukbanger"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "start",
+      "heading": "Start Here: Your First Ramen and Mukbang",
+      "intro": "The best first objective is a complete game-directed cooking and video sequence, not a guess about advanced recipes.",
+      "subsections": [
+        {
+          "heading": "Begin your first game session",
+          "paragraphs": [
+            "Join the official game, read its current in-game cooking prompt and finish one accessible ramen task. Watch for a completion signal before moving to the creator stage.",
+            "The beginner guide separates preparation, recording and progression checks so a new player can identify which stage is unfinished. It does not assume a particular button or ingredient that has not been observed."
+          ]
+        },
+        {
+          "heading": "Record your first video",
+          "paragraphs": [
+            "Roblox describes First Mukbang as 'Post your first video'. Follow the creator workflow shown by the game rather than mistaking a clip recorded by the Roblox platform's Captures feature for an in-game post.",
+            "The dedicated mukbang page explains how to track this video milestone separately from cash and followers."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "How to Play",
+          "slug": "how-to-play",
+          "description": "A complete beginner's first-session checklist."
+        },
+        {
+          "label": "Mukbang Guide",
+          "slug": "mukbang-guide",
+          "description": "Prepare, record, post and confirm the First Mukbang goal."
+        }
+      ]
+    },
+    {
+      "id": "progress",
+      "heading": "Money and Followers Guides",
+      "intro": "Wealth, audience growth and the number of posted videos are different measurements. Treat them as separate goals.",
+      "subsections": [
+        {
+          "heading": "Earning and spending wisely",
+          "paragraphs": [
+            "Before declaring a strategy the fastest, compare the change in cash before and after complete sessions. Time each cycle, record purchases and change only one factor when testing upgrades.",
+            "The money guide brings 'how to make money fast' and 'best way to make money' into one focused page. It includes a useful comparison worksheet instead of made-up guaranteed earnings."
+          ]
+        },
+        {
+          "heading": "Reach the 1K follower badge",
+          "paragraphs": [
+            "Rising Star is officially described as reaching one thousand followers. That target can be tracked separately from Regular, which requires 50 posted videos.",
+            "The follower guide shows how to note baseline values, track successive sessions and avoid relying on unsupported followers-per-video formulas."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "How to Make Money",
+          "slug": "how-to-make-money",
+          "description": "A measured approach to gameplay cash and upgrades."
+        },
+        {
+          "label": "How to Get Followers",
+          "slug": "how-to-get-followers",
+          "description": "Track toward the 1,000-follower Rising Star target."
+        }
+      ]
+    },
+    {
+      "id": "passes",
+      "heading": "Gamepasses and Optional Upgrades",
+      "intro": "Consider optional Roblox passes only after understanding what the current official store says they do.",
+      "subsections": [
+        {
+          "heading": "What the in-game shop sells",
+          "paragraphs": [
+            "A public October 19 game-store index lists items named 2x Followers, 2x Cash, 2x Luck, Auto Tips, Auto Collect and VIP alongside themed offerings. These are named candidates to inspect, not proof of a particular effect or permanent official price.",
+            "The same third-party index showed inconsistent cached prices for some items. Use the Roblox purchase screen to confirm the current amount, terms and benefit instead of trusting a stale snapshot."
+          ]
+        },
+        {
+          "heading": "Free play before upgrades",
+          "paragraphs": [
+            "The official game description introduces cooking and mukbang creation without naming a required paid pass. Complete a baseline gameplay session, then decide whether you value follower growth, cash, convenience or presentation.",
+            "A pass named 2x Cash cannot be assumed to double every in-game payout until its official description and actual observed result support that interpretation."
+          ]
+        }
+      ],
+      "links": [
+        {
+          "label": "Gamepasses",
+          "slug": "gamepasses",
+          "description": "Understand the pass categories and avoid stale checkout prices."
+        }
+      ]
+    },
+    {
+      "id": "milestones",
+      "heading": "Verified Milestones and Game Updates",
+      "intro": "These three achievements are documented on the Roblox game listing, and give players concrete goals without speculative unlock numbers.",
+      "subsections": [
+        {
+          "heading": "First Mukbang — first video",
+          "paragraphs": [
+            "Requirement: post your first video. It is the clearest early completion signal for the game's creator loop, but the exact control sequence depends on the current game interface."
+          ]
+        },
+        {
+          "heading": "Rising Star — 1K followers",
+          "paragraphs": [
+            "Requirement: reach one thousand followers. This is not interchangeable with money, likes or the number of Roblox profile followers."
+          ]
+        },
+        {
+          "heading": "Regular — 50 videos",
+          "paragraphs": [
+            "Requirement: post fifty videos. This measures content production rather than a specific cash or follower amount."
+          ]
+        },
+        {
+          "heading": "Recent public update signals",
+          "paragraphs": [
+            "A public game index lists a Release update on October 17, 2026 and an Auto Tips product added the same day. This is a dated third-party activity record, not a promise about when the next release will happen."
+          ]
+        }
+      ],
+      "table": {
+        "caption": "Confirmed badge descriptions from Roblox's official game listing",
+        "columns": [
+          "Badge",
+          "Requirement",
+          "Page"
+        ],
+        "rows": [
+          [
+            "First Mukbang",
+            "Post first video",
+            "Mukbang Guide"
+          ],
+          [
+            "Rising Star",
+            "Reach 1K followers",
+            "Followers Guide"
+          ],
+          [
+            "Regular",
+            "Post 50 videos",
+            "Mukbang Guide"
+          ]
+        ]
+      }
+    },
+    {
+      "id": "how-to-use",
+      "heading": "How to Use This Independent Game Wiki",
+      "intro": "Choose the page matching your immediate question rather than reading several overlapping answers.",
+      "subsections": [
+        {
+          "heading": "One player question, one focused guide",
+          "paragraphs": [
+            "The beginner page helps you complete your first loop. The money page focuses on repeatable cash comparisons. The follower page focuses on a documented audience milestone. The mukbang guide focuses on posting a video. The gamepasses page deals only with optional purchases.",
+            "This structure avoids splitting near-synonyms like 'money fast' and 'best way to make money' into duplicate articles. Each page links back to the appropriate related resources."
+          ]
+        },
+        {
+          "heading": "Source and accuracy policy",
+          "paragraphs": [
+            "The official Roblox game listing is the first reference for game identity and badge requirements. Time-sensitive store names and prices can change, so the actual Roblox purchase interface is the final source for a transaction.",
+            "Do not mistake a dated public snapshot for live earnings or current player counts. This guide does not publish unverified codes, exact cash-per-minute promises or invented controls."
+          ]
+        }
       ]
     }
   ],
-  "faq": [],
+  "faq": [
+    {
+      "question": "What is Make Ramen To Get Rich?",
+      "answer": "It is a Roblox game by more ramen yum built around cooking ramen, recording a mukbang and growing a creator following."
+    },
+    {
+      "question": "How do you start playing?",
+      "answer": "Open the official Roblox game and follow its in-game ramen and recording objectives. See How to Play for beginner checkpoints."
+    },
+    {
+      "question": "How do you get money and followers?",
+      "answer": "Follow the game's cooking and video loop, then monitor cash and followers separately. The focused money and follower guides explain how to measure progress."
+    },
+    {
+      "question": "Is it a real ramen shop game?",
+      "answer": "No. This site covers the Roblox creator-and-mukbang simulation, not real ramen recipes or a conventional restaurant customer-management game."
+    }
+  ],
   "screenshots": [],
   "lastReviewed": "2026-10-19"
 }

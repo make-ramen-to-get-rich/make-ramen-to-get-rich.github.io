@@ -1,8 +1,8 @@
 {
   "readyForLaunch": false,
-  "siteName": "Make Ramen To Get Rich Guide",
+  "siteName": "Make Ramen To Get Rich Wiki",
   "shortName": "Make Ramen To Get Rich",
-  "description": "Make Ramen To Get Rich guides, walkthroughs, tips, updates, and reference information.",
+  "description": "Independent Make Ramen To Get Rich Roblox wiki: beginner steps, earning methods, follower milestones, mukbang videos and optional gamepasses.",
   "language": "en",
   "locale": "en_US",
   "authorName": "Editorial Team",
@@ -54,11 +54,11 @@
   "game": {
     "name": "Make Ramen To Get Rich",
     "platform": "Roblox",
-    "developer": "",
-    "genre": "",
-    "officialUrl": "https://www.roblox.com/games/102155891663543"
+    "developer": "more ramen yum",
+    "genre": "Simulation",
+    "officialUrl": "https://www.roblox.com/games/102155891663543/Make-Ramen-To-Get-Rich"
   },
   "seo": {
-    "titleTemplate": "%s | Make Ramen To Get Rich Guide"
+    "titleTemplate": "%s"
   }
 }
