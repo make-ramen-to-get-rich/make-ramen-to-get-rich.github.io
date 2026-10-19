@@ -5,28 +5,23 @@ import { siteSkin } from "@/config/skin";
 import type { SeoPageDefinition } from "@/config/types";
 import { enabledLegalPages, getRelatedPages, visibleCorePages } from "@/content/registry";
 import { esc, renderFixedDocument } from "@/lib/fixed-template/render";
+import { guideNav, renderSeoSections } from "./fixed-template-sections";
 import { pageSchemas } from "@/lib/schema";
 import { assetPath, routePath } from "@/lib/urls";
 
 function articleInner(page: SeoPageDefinition): string {
-  const sections = page.sections.map((section) => {
-    const paragraphs = [
-      section.intro ? `<p>${esc(section.intro)}</p>` : "",
-      ...(section.paragraphs ?? []).map((paragraph) => `<p>${esc(paragraph)}</p>`),
-    ].join("");
-    const steps = section.steps?.length
-      ? `<ol>${section.steps.map((step) => `<li><b>${esc(step.heading)}</b> ${esc(step.description)}</li>`).join("")}</ol>`
-      : "";
-    return `<section id="${esc(section.id)}"><h2>${esc(section.heading)}</h2>${paragraphs}${steps}</section>`;
-  }).join("");
-  const faq = page.faq?.length
-    ? `<section id="faq"><h2>FAQ</h2>${page.faq.map((item) => `<p><b>${esc(item.question)}</b> ${esc(item.answer)}</p>`).join("")}</section>`
-    : "";
   const related = getRelatedPages(page);
-  const relatedHtml = related.length
-    ? `<section id="related"><h2>Related</h2><ul>${related.map((item) => `<li><a href="${esc(siteSkin() === "arcade-play" ? assetPath(routePath(item.slug)) : routePath(item.slug))}">${esc(item.navLabel)}</a></li>`).join("")}</ul></section>`
+  const nav = visibleCorePages.map(item => ({ label: item.navLabel, slug: item.slug }));
+  const official = siteConfig.game.officialUrl
+    ? `<p><a class="guide-official-cta" href="${esc(siteConfig.game.officialUrl)}" rel="noopener noreferrer" target="_blank">Open the official Roblox game ↗</a></p>`
     : "";
-  return `<p>${esc(page.hero.lead)}</p>${sections}${faq}${relatedHtml}`;
+  const faq = page.faq?.length
+    ? `<section class="guide-section" id="faq"><h2>Frequently Asked Questions</h2>${page.faq.map(item => `<div class="guide-subsection"><h3>${esc(item.question)}</h3><p>${esc(item.answer)}</p></div>`).join("")}</section>`
+    : "";
+  const relatedHtml = related.length
+    ? `<section class="guide-section" id="related"><h2>Related Guides</h2><ul class="guide-related-links">${related.map(item => `<li><a href="${esc(routePath(item.slug))}">${esc(item.navLabel)}</a></li>`).join("")}</ul></section>`
+    : "";
+  return `<div class="template-seo-content"><p class="guide-intro">${esc(page.hero.lead)}</p>${official}${guideNav(nav)}${renderSeoSections(page.sections)}${faq}${relatedHtml}</div>`;
 }
 
 export function FixedTemplateInner({ page }: { page: SeoPageDefinition }) {

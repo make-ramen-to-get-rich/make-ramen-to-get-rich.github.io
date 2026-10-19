@@ -52,6 +52,22 @@ jobs:
             for (const other of routes.slice(1)) assert(html.includes('/'+other+'/'), 'Navigation missing '+other+' on '+file);
             assert(!/Yorich|交接立项|详情资料|prompt\s*instructions|AGENTS\.md|CLAUDE\.md/i.test(html), 'Internal phrase in '+file);
           }
+          const pages = JSON.parse(fs.readFileSync('content/generated/pages.json', 'utf8'));
+          const home = JSON.parse(fs.readFileSync('content/generated/home.json', 'utf8'));
+          for (const page of [home, ...pages]) {
+            const html = read(page.slug ? path.join(page.slug, 'index.html') : 'index.html');
+            for (const section of page.sections) {
+              assert(html.includes('<h2>'+section.heading.replace(/&/g,'&amp;')+'</h2>'), 'Missing source H2: '+section.heading);
+              for (const sub of section.subsections ?? []) {
+                assert(html.includes('<h3>'+sub.heading.replace(/&/g,'&amp;')+'</h3>'), 'Missing source H3: '+sub.heading);
+                for (const paragraph of sub.paragraphs) assert(html.includes(paragraph.slice(0,35).replace(/&/g,'&amp;')), 'Missing source paragraph: '+page.slug);
+              }
+              if (section.table) assert(html.includes('<table>') && html.includes(section.table.caption), 'Missing source table '+page.slug);
+              for (const link of section.links ?? []) assert(html.includes('href="/'+link.slug+'/"'), 'Missing contextual link '+link.slug);
+            }
+            assert(html.includes('guide-mobile-navigation'), 'No mobile navigation '+page.slug);
+            assert(html.includes('roblox.com/games/102155891663543'), 'Official Roblox CTA missing '+page.slug);
+          }
           assert.equal((sitemap.match(/<loc>/g)||[]).length, 6, 'Unexpected sitemap URL count');
           const robots = read('robots.txt');
           assert(robots.includes('sitemap.xml'), 'robots.txt missing sitemap link');

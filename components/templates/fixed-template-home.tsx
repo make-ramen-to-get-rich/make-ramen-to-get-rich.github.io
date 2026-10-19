@@ -5,17 +5,17 @@ import { siteConfig } from "@/config/site";
 import { siteSkin } from "@/config/skin";
 import type { HomePageDefinition, InternalLink } from "@/config/types";
 import { visibleCorePages } from "@/content/registry";
-import { esc, renderFixedDocument } from "@/lib/fixed-template/render";
+import { renderFixedDocument } from "@/lib/fixed-template/render";
+import { guideNav, renderSeoSections } from "./fixed-template-sections";
 import { homeSchemas } from "@/lib/schema";
 import { assetPath, routePath } from "@/lib/urls";
 
 function supplement(home: HomePageDefinition): string {
-  const sections = home.sections.map((section) => {
-    const paragraphs = (section.paragraphs ?? []).map((paragraph) => `<p>${esc(paragraph)}</p>`).join("");
-    const intro = section.intro ? `<p>${esc(section.intro)}</p>` : "";
-    return `<section id="${esc(section.id)}"><h2>${esc(section.heading)}</h2>${intro}${paragraphs}</section>`;
-  }).join("");
-  return sections;
+  const links = visibleCorePages.map(page => ({ label: page.navLabel, slug: page.slug }));
+  const official = siteConfig.game.officialUrl
+    ? `<p><a class="guide-official-cta" href="${siteConfig.game.officialUrl}" rel="noopener noreferrer" target="_blank">Play Make Ramen To Get Rich on Roblox ↗</a></p>`
+    : "";
+  return `<div class="template-seo-content site-container">${guideNav(links)}${official}${renderSeoSections(home.sections)}</div>`;
 }
 
 export function FixedTemplateHome({ home }: { home: HomePageDefinition }) {
