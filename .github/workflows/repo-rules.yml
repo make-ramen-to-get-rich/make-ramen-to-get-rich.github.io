@@ -121,7 +121,7 @@ jobs:
                   assert(details.heroHeight<500,'Hero image too tall '+device.name);
                 }
                 if(device.width<=1099){
-                  const toggle=page.getByRole('button',{name:'Open navigation'});
+                  const toggle=page.locator('button.site-nav-toggle');
                   assert(await toggle.isVisible(),'Mobile nav toggle missing '+device.name+' '+slug);
                   await toggle.click();
                   assert.equal(await toggle.getAttribute('aria-expanded'),'true','Mobile nav did not open '+device.name);
