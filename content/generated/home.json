@@ -1,0 +1,30 @@
+{
+  "enabled": true,
+  "slug": "",
+  "pageType": "home",
+  "title": "Make Ramen To Get Rich Guide",
+  "description": "Guides, walkthroughs, tips, updates, and reference information for Make Ramen To Get Rich.",
+  "navVisible": true,
+  "hero": {
+    "eyebrow": "Game guide",
+    "heading": "Make Ramen To Get Rich",
+    "lead": "Guides, walkthroughs, tips, updates, and reference information for Make Ramen To Get Rich.",
+    "supportingText": "Browse current game information and practical guides.",
+    "secondaryLink": {
+      "label": "Open official game page",
+      "url": "https://www.roblox.com/games/102155891663543"
+    }
+  },
+  "sections": [
+    {
+      "id": "start-here",
+      "heading": "Game information",
+      "paragraphs": [
+        "Current Make Ramen To Get Rich guides and reference information will be published here."
+      ]
+    }
+  ],
+  "faq": [],
+  "screenshots": [],
+  "lastReviewed": "2026-10-19"
+}
