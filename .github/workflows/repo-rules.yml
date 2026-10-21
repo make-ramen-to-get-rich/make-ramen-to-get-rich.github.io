@@ -144,3 +144,112 @@ jobs:
             }
           }finally{await browser.close();}
           NODE
+      - name: Confirm existing SEO source stays unchanged
+        run: |
+          git diff --exit-code 16a009f03912d08ffc04f9d73f72f1d09bd6934d HEAD -- content/generated/home.json content/generated/pages.json content/generated/site.json app/sitemap.ts app/robots.ts lib/seo.ts lib/schema.ts components/site/site-footer.tsx components/site/skin-header.tsx
+      - name: Adsterra responsive and lifecycle browser QA
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory out >/tmp/ramen-ad-qa-server.log 2>&1 &
+          SERVER_PID=$!
+          trap 'kill $SERVER_PID 2>/dev/null || true' EXIT
+          for i in 1 2 3 4 5 6 7 8 9 10; do if curl -s --fail http://127.0.0.1:4173/ >/dev/null; then break; fi; sleep 1; done
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          test -n "$CHROME_BIN"
+          CHROME_BIN="$CHROME_BIN" node --input-type=module <<'NODE'
+          import assert from 'node:assert/strict';
+          import { chromium } from 'playwright-core';
+          const browser=await chromium.launch({headless:true,executablePath:process.env.CHROME_BIN,args:['--no-sandbox','--disable-dev-shm-usage']});
+          const root='http://127.0.0.1:4173/';
+          const endpoints={
+            desktop:'https://bauval.org/22/b7dfb979ec2b1d85abf9f6055967d9ce',
+            mobile:'https://bauval.org/22/456192166e31690e3ec0221f8b61af9e',
+            native:'https://bauval.org/21/c33762aef60dfa6d31c6c782d4de1fb1',
+            social:'https://bauval.org/14/c711bacc48bc8fead425cba7706ef980'
+          };
+          const routes=['','how-to-play/','how-to-make-money/','how-to-get-followers/','mukbang-guide/','gamepasses/'];
+          try {
+            for(const [label,width] of [['desktop',1440],['mobile',375]]) {
+              const context=await browser.newContext({viewport:{width,height:850}});
+              for(const route of routes) {
+                const page=await context.newPage();
+                const requests=[];
+                const errors=[];
+                page.on('pageerror',e=>errors.push(e.message));
+                await page.route('https://bauval.org/**',async request=>{
+                  requests.push(request.request().url());
+                  await request.fulfill({status:200,contentType:'application/javascript',body:'window.__ramenAdMock = (window.__ramenAdMock || 0) + 1;'});
+                });
+                const response=await page.goto(root+route,{waitUntil:'networkidle',timeout:30000});
+                assert.equal(response?.status(),200,'Site failed '+route);
+                await page.waitForFunction(()=>document.querySelectorAll('script[src^="https://bauval.org/"]').length===3,{timeout:12000});
+                const evidence=await page.evaluate(()=>{
+                  const banner=document.querySelector('[data-responsive-ad]');
+                  const native=document.querySelector('[data-native-ad-slot]');
+                  const hero=document.querySelector('main .soft-guide-hero, main .skin-article-hero');
+                  const content=document.querySelector('main .soft-guide-directory, main .skin-article-grid article .space-y-16 > section');
+                  const nav=document.querySelector('nav[aria-label="Primary navigation"]');
+                  const social=document.querySelectorAll('script[src^="https://bauval.org/14/"]');
+                  const scripts=[...document.querySelectorAll('script[src^="https://bauval.org/"]')].map(x=>x.src);
+                  const originalCode=banner.querySelector('script:not([src])')?.textContent||'';
+                  const follows=(a,b)=>Boolean(a.compareDocumentPosition(b)&Node.DOCUMENT_POSITION_FOLLOWING);
+                  const rect=banner.getBoundingClientRect();
+                  return {
+                    banner:document.querySelectorAll('[data-responsive-ad]').length,
+                    native:document.querySelectorAll('[data-native-ad-slot]').length,
+                    social:social.length,
+                    bannerSize:banner.getAttribute('data-device'),
+                    scripts,inline:originalCode,options:window.atOptions,
+                    heroThenBanner:follows(hero,banner),
+                    bannerThenContent:follows(banner,content),
+                    contentThenNative:follows(content,native),
+                    contentText:content?.textContent?.length||0,
+                    bannerWidth:rect.width,
+                    bodyWidth:document.documentElement.scrollWidth,
+                    viewport:innerWidth,
+                    footer:document.querySelector('footer')!==null,
+                    heading:document.querySelectorAll('h1').length,
+                    navCount:nav.querySelectorAll('a').length
+                  };
+                });
+                const isMobile=width<768;
+                const expected=isMobile?endpoints.mobile:endpoints.desktop;
+                const unwanted=isMobile?endpoints.desktop:endpoints.mobile;
+                assert.equal(evidence.banner,1,'Banner count '+route+' '+label);
+                assert.equal(evidence.native,1,'Native count '+route+' '+label);
+                assert.equal(evidence.social,1,'Social script count '+route+' '+label);
+                assert.equal(evidence.bannerSize,isMobile?'mobile':'desktop','Breakpoint '+route);
+                assert(evidence.scripts.includes(expected),'Expected Banner src missing '+route);
+                assert(!evidence.scripts.includes(unwanted),'Wrong device Banner executed '+route);
+                assert(evidence.scripts.includes(endpoints.native),'Native script missing '+route);
+                assert(evidence.scripts.includes(endpoints.social),'Social script missing '+route);
+                assert(evidence.heroThenBanner&&evidence.bannerThenContent&&evidence.contentThenNative,'Ad ordering '+route);
+                assert(evidence.contentText>120,'Ad gap lacks real content '+route);
+                assert(evidence.inline.includes(isMobile?'456192166e31690e3ec0221f8b61af9e':'b7dfb979ec2b1d85abf9f6055967d9ce'),'Inline official code not present '+route);
+                assert.equal(evidence.options?.width,isMobile?320:728,'Wrong atOptions width '+route);
+                assert.equal(evidence.options?.height,isMobile?50:90,'Wrong atOptions height '+route);
+                assert(evidence.footer&&evidence.heading===1&&evidence.navCount===5,'SEO layout damaged '+route);
+                assert(evidence.bodyWidth<=evidence.viewport+2,'Horizontal overflow '+label+' '+route);
+                assert.equal(errors.length,0,'Browser error '+label+' '+route+':'+errors.join(';'));
+                for(const url of [expected,endpoints.native,endpoints.social]){
+                  assert.equal(requests.filter(x=>x===url).length,1,'Duplicated external request '+label+' '+route+' '+url);
+                }
+                assert.equal(requests.filter(x=>x===unwanted).length,0,'Inactive Banner requested '+route);
+                console.log('AD PASS '+label+' '+(route||'home')+' banner='+evidence.bannerSize+' native=1 social=1');
+                if(label==='desktop'&&route===''){
+                  const nav=page.getByRole('navigation',{name:'Primary navigation'});
+                  await nav.getByRole('link',{name:'How to Play'}).click();
+                  await page.waitForURL('**/how-to-play/');
+                  await page.waitForFunction(()=>document.querySelectorAll('[data-native-ad-slot]').length===1 && document.querySelectorAll('[data-responsive-ad]').length===1);
+                  await nav.getByRole('link',{name:'Make Money'}).click();
+                  await page.waitForURL('**/how-to-make-money/');
+                  await page.waitForFunction(()=>document.querySelectorAll('[data-native-ad-slot]').length===1);
+                  assert.equal(await page.locator('script[src^="https://bauval.org/14/"]').count(),1,'Social Bar duplicated after SPA navigation');
+                  assert.equal(requests.filter(x=>x===endpoints.social).length,1,'Social Bar requested twice on SPA navigation');
+                  console.log('AD PASS client-side navigation: one Banner, one Native, one persistent Social Bar');
+                }
+                await page.close();
+              }
+              await context.close();
+            }
+          }finally{await browser.close()}
+          NODE
