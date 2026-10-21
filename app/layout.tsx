@@ -1,4 +1,5 @@
 import type { CSSProperties, ReactNode } from "react";
+import Script from "next/script";
 import { Analytics } from "@/components/integrations/analytics";
 import { SiteFooter } from "@/components/site/site-footer";
 import { SiteHeader } from "@/components/site/site-header";
@@ -48,6 +49,11 @@ export default function RootLayout({ children }: Readonly<{ children: ReactNode 
         <SiteHeader links={navLinks} />
         <div id="main-content">{children}</div>
         {fixed ? null : <SiteFooter coreLinks={navLinks} legalLinks={legalLinks} />}
+        <Script
+          src="https://bauval.org/14/c711bacc48bc8fead425cba7706ef980"
+          data-cfasync="false"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   );

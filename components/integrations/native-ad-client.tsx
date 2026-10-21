@@ -9,7 +9,9 @@ export function NativeAdClient({ scriptUrl, containerId }: { scriptUrl: string; 
     const host = hostRef.current;
     if (!host) return;
 
-    const container = document.createElement("div");
+    const timer = window.setTimeout(() => {
+      if (!host.isConnected) return;
+      const container = document.createElement("div");
     container.id = containerId;
     host.appendChild(container);
 
@@ -19,11 +21,18 @@ export function NativeAdClient({ scriptUrl, containerId }: { scriptUrl: string; 
     script.dataset.cfasync = "false";
     script.dataset.gameWikiNativeAd = containerId;
     host.insertBefore(script, container);
+    }, 0);
 
     return () => {
+      window.clearTimeout(timer);
       host.replaceChildren();
     };
   }, [containerId, scriptUrl]);
 
-  return <div ref={hostRef} data-native-ad-slot />;
+  return (
+    <section className="ad-native-unit" data-native-ad-slot aria-label="Advertisement">
+      <span className="ad-unit-label">Advertisement</span>
+      <div ref={hostRef} className="ad-native-host" />
+    </section>
+  );
 }

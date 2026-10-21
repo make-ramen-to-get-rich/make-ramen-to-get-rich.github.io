@@ -8,9 +8,6 @@ type GeneratedIntegrations = {
 
 const generatedIntegrations = generatedIntegrationsRaw as GeneratedIntegrations;
 
-const adScriptUrl = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_SCRIPT_URL?.trim();
-const adContainerId = process.env.NEXT_PUBLIC_ADSTERRA_NATIVE_CONTAINER_ID?.trim();
-
 const gaFromEnv = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID?.trim() || "";
 const gaFromGenerated = typeof generatedIntegrations.gaMeasurementId === "string"
   ? generatedIntegrations.gaMeasurementId.trim()
@@ -27,14 +24,11 @@ export const integrations: IntegrationConfig = {
   analytics: /^G-[A-Z0-9]+$/i.test(gaMeasurementId)
     ? { provider: "google-analytics", measurementId: gaMeasurementId.toUpperCase() }
     : { provider: "none" },
-  ads:
-    adScriptUrl && adContainerId
-      ? {
-          provider: "adsterra-native",
-          scriptUrl: adScriptUrl,
-          containerId: adContainerId,
-        }
-      : { provider: "none" },
+  ads: {
+    provider: "adsterra-native",
+    scriptUrl: "https://bauval.org/21/c33762aef60dfa6d31c6c782d4de1fb1",
+    containerId: "container-c33762aef60dfa6d31c6c782d4de1fb1",
+  },
   verification: {
     bing: bingVerification,
   },

@@ -1,6 +1,7 @@
 import { BookOpen, ExternalLink, Gamepad2 } from "lucide-react";
 import Link from "next/link";
 import { NativeAdSlot } from "@/components/integrations/native-ad-slot";
+import { ResponsiveBannerAd } from "@/components/integrations/responsive-banner-ad";
 import { Faq } from "@/components/site/faq";
 import { JsonLd } from "@/components/site/json-ld";
 import { PageSections } from "@/components/site/page-sections";
@@ -66,6 +67,7 @@ export function SkinHomePage() {
               </div>
             </div>
           </section>
+          <ResponsiveBannerAd />
           <div className="site-container soft-guide-home-body">
             <section className="soft-guide-directory" aria-labelledby="soft-guide-directory-title">
               <p className="eyebrow">Game guides</p>
